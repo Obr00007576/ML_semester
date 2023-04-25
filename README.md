@@ -105,12 +105,12 @@ V23  0.11253767
 We can see that the data dimensions' parameters of V2,V3,V6,V10,V13,V15,V16,V19,20,V22 are 0, which means such data dimensions are not used in the model. The dimensions has the most influence on the model are V14 and V9.
 
 ## Work5
-I used a NN-model with size 26x64x32x8x32x64x26 to reduce the dimension of original dataset from 26 to 8. And actually it reduces the dimension from 26 to 6, because 2 of dimensions are columns with 0s.
+I used a NN-model with size 22x64x32x8x32x64x22 to reduce the dimension of original dataset from 22 to 8. And actually it reduces the dimension from 26 to 6, because 2 of dimensions are columns with 0s.
 
-Then I created a svm classifier from the dimension-reduced dataset. I used this svm model to predict the encoded train and test datasets the error rates are as followed:
+Then I created a svm classifier from the dimension-reduced dataset. I used this svm model to predict the encoded train and test datasets the error rates on average are as followed:
 ```
-[1] "Train error 0.0625"
-[1] "Test error 0.149732620320856"
+[1] "Train error 0.765"
+[1] "Test error 0.1953"
 ```
 
 This method does have not bad result.
@@ -120,4 +120,11 @@ Then we can draw a new tsne image from the encoded data from the training datase
 
 The new tsne images shows a nice dimension-reduced x-y image where we can easily use a straight line to devide the data into red and blue classes and it shows likelihood to classify the data with lower dimension with better results. The perplexity of this tsne image is set to 7.
 
+Then I used the same size to create a Denoising Autoencoder(DAE). All the settings was as before but I just created a new dataset x_noisy_train by adding noise on the dataset to train the DAE. As before, after encoding the original datas I used the svm method to classify the train and test datasets. With a bunch of tests. A typical result on average is as followed:
+Noisy: 0.3
+```
+[1] "Train error 0.0765"
+[1] "Test error 0.13903743315508"
+```
 
+We can see that with DAE and svm, the error rate on the train set does not change much. But on the test dataset, the error rate does decrease. This means that with DAE, my classifier gets better generalization performance instead of overfitting.
