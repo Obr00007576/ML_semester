@@ -3,7 +3,7 @@ ML_semester
 
 My work is to deal with the dataset: SPECT
 
-Attributs infomation about SPECT dataset:
+Attributes infomation about SPECT dataset:
 ```
 Attribute Information:
    1.  OVERALL_DIAGNOSIS: 0,1 (class attribute, binary)
