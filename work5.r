@@ -56,3 +56,6 @@ color_palette <- c("blue", "red")
 colors <- color_palette[ndata$y_train + 1]
 colnames(tsne_df) <- c("x", "y")
 plot(tsne_df$x, tsne_df$y, col = colors)
+
+print(paste("Train error", error_rate_train))
+print(paste("Test error", error_rate_test))
