@@ -121,7 +121,8 @@ Then we can draw a new tsne image from the encoded data from the training datase
 The new tsne images shows a nice dimension-reduced x-y image where we can easily use a straight line to devide the data into red and blue classes and it shows likelihood to classify the data with lower dimension with better results. The perplexity of this tsne image is set to 7.
 
 Then I used the same size to create a Denoising Autoencoder(DAE). All the settings was as before but I just created a new dataset x_noisy_train by adding noise on the dataset to train the DAE. As before, after encoding the original datas I used the svm method to classify the train and test datasets. With a bunch of tests, a typical result on average is as followed:
-Noisy: 0.3
+
+Noise: 0.3
 ```
 [1] "Train error 0.0765"
 [1] "Test error 0.13903743315508"
