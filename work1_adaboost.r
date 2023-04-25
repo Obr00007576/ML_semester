@@ -7,7 +7,7 @@ set.seed(333)
 #Adaboost classify
 library(adabag)
 
-n_trees <- seq(100, 300, by = 10)
+n_trees <- seq(101, 300, by = 10)
 error_list <- list()
 ada_model <- boosting(V1 ~ ., data = spect_train)
 for (n in n_trees)
